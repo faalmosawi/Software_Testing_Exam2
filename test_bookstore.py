@@ -104,9 +104,10 @@ def test_create_book_with_empty_author(client):
         "title": "The Great Gatsby",
         "price": 12.99
     })
-    assert response.status_code == 400
+
     data = response.get_json()
-    assert "error" in data
+
+    assert response.status_code == 400
     assert data["error"] == "title, author, and price are required"
 
 # 4. Create with invalid price
@@ -129,7 +130,7 @@ def test_list_books_when_empty(client):
     data = response.get_json()
     
     assert response.status_code == 200
-    assert len(data["books"]) == 0
+    assert data["books"] == []
 
 # 6. List books after adding 2+ books (check count)
 def test_list_books_after_adding_books(client):
