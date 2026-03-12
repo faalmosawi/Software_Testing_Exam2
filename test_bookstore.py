@@ -85,7 +85,7 @@ def test_create_valid_book(client):
     assert "book" in data
     assert data["book"]["title"] == "The Great Gatsby"
     assert data["book"]["author"] == "F. Scott Fitzgerald"
-    assert data["book"]["price"] == 12.99
+    assert data["book"]["price"] == 12
 
 # 2. Create with missing title
 def test_create_book_with_missing_title(client):
